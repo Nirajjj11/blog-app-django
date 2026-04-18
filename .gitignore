@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+
+# Media & Static (optional)
+media/
+staticfiles/
+
+# Environment variables
+.env
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Migrations (optional)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Coverage / testing
+.coverage
+htmlcov/
+
+# Node (if you ever use frontend tools)
+node_modules/
+
+# Secret files
+secret_key.txt

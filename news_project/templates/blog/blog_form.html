@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+      <div class="card-body">
+
+            <h2>{% if object %}Edit Blog{% else %}Create Blog{% endif %}</h2>
+
+            <form method="post">
+                  {% csrf_token %}
+
+                  <div class="mb-3">
+                        <label>Title</label>
+                        {{ form.title }}
+                  </div>
+
+                  <div class="mb-3">
+                        <label>Body</label>
+                        {{ form.body }}
+                  </div>
+
+                  <button class="btn btn-success">Save</button>
+            </form>
+
+      </div>
+</div>
+
+{% endblock %}
