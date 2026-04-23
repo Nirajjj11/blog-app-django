@@ -7,7 +7,7 @@
 
             <h2>{% if object %}Edit Blog{% else %}Create Blog{% endif %}</h2>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                   {% csrf_token %}
 
                   <div class="mb-3">
@@ -20,6 +20,18 @@
                         {{ form.body }}
                   </div>
 
+                  <!-- for image upload -->
+                  <div class="mb-3">
+                        <label>Image</label>
+                        {{ form.image }}
+                  </div>
+
+                  {% if object and object.image %}
+                  <div class="mb-3">
+                        <p>Current Image:</p>
+                        <img src="{{ object.image.url }}" class="img-fluid rounded" style="max-width:200px;">
+                  </div>
+                  {% endif %}
                   <button class="btn btn-success">Save</button>
             </form>
 

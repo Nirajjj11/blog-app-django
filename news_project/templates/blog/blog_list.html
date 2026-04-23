@@ -17,6 +17,9 @@
       <div class="col">
             <div class="card h-100">
                   <div class="card-body">
+                        {% if blog.image %}
+                        <img src="{{ blog.image.url }}" class="card-img-top">
+                        {% endif %}
                         <h5 class="card-title">
                               <a href="{{ blog.get_absolute_url }}">
                                     {{ blog.title }}
@@ -37,4 +40,4 @@
       <p>No blogs published yet.</p>
       {% endfor %}
 
-{% endblock %}
+      {% endblock %}

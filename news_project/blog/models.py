@@ -18,6 +18,7 @@ class Blog(models.Model):
       author = models.ForeignKey(User, on_delete=models.CASCADE)
       status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
       created_at = models.DateTimeField(auto_now_add=True)
+      image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
 
       def __str__(self):
             return self.title

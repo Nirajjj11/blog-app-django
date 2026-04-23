@@ -22,7 +22,7 @@ class BlogDetailView(DetailView):
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
       model = Blog
-      fields = ['title', 'body']
+      fields = ['title', 'body', 'image']
       template_name = "blog/blog_form.html"
 
       def form_valid(self, form):
@@ -33,7 +33,7 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
 
 class BlogUpdateView(LoginRequiredMixin, UpdateView):
       model = Blog
-      fields = ['title', 'body']
+      fields = ['title', 'body','image']
       template_name = "blog/blog_form.html"
 
 
