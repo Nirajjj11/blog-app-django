@@ -9,10 +9,10 @@ from .models import Blog, Comment, Like
 class BlogListView(ListView):
       model = Blog
       template_name = "blog/blog_list.html"
-      context_object_name = "blogs"   # ✅ ADD THIS
+      context_object_name = "blogs"   
 
       def get_queryset(self):
-            return Blog.objects.filter(status="published")
+            return Blog.objects.filter(status="published").order_by('-created_at')
 
 
 class BlogDetailView(DetailView):

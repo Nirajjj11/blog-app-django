@@ -10,20 +10,31 @@
       {% endif %}
 </div>
 
-{% for blog in blogs %}
-<div class="card mb-3 shadow-sm">
-      <div class="card-body">
-            <h4>
-                  <a href="{{ blog.get_absolute_url }}">
-                        {{ blog.title }}
-                  </a>
-            </h4>
-            <p class="text-muted">By {{ blog.author }}</p>
-            <p>{{ blog.body|truncatewords:25 }}</p>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+      {% for blog in blogs %}
+      <div class="col">
+            <div class="card h-100">
+                  <div class="card-body">
+                        <h5 class="card-title">
+                              <a href="{{ blog.get_absolute_url }}">
+                                    {{ blog.title }}
+                              </a>
+                        </h5>
+                        <p class="text-muted">By {{ blog.author }}</p>
+                        <p>{{ blog.body|truncatewords:25 }}</p>
+                  </div>
+
+                  <div class="card-footer">
+                        <small class="text-body-secondary">
+                              {{ blog.created_at }}
+                        </small>
+                  </div>
+            </div>
       </div>
-</div>
-{% empty %}
-<p>No blogs published yet.</p>
-{% endfor %}
+      {% empty %}
+      <p>No blogs published yet.</p>
+      {% endfor %}
 
 {% endblock %}
