@@ -20,6 +20,8 @@ class BlogDetailView(DetailView):
       template_name = "blog/blog_detail.html"
 
 
+# from .models import Blog, BlogImage   # make sure BlogImage is imported
+
 class BlogCreateView(LoginRequiredMixin, CreateView):
       model = Blog
       fields = ['title', 'body', 'image']
@@ -28,13 +30,31 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
       def form_valid(self, form):
             form.instance.author = self.request.user
             form.instance.status = "draft"
-            return super().form_valid(form)
+
+            response = super().form_valid(form)  # save blog first
+
+            # ✅ ADD THIS PART
+            images = self.request.FILES.getlist('images')
+            for img in images:
+                  BlogImage.objects.create(blog=self.object, image=img)
+
+            return response
 
 
 class BlogUpdateView(LoginRequiredMixin, UpdateView):
       model = Blog
-      fields = ['title', 'body','image']
+      fields = ['title', 'body', 'image']
       template_name = "blog/blog_form.html"
+
+      def form_valid(self, form):
+            response = super().form_valid(form)
+
+            # ✅ ADD THIS PART
+            images = self.request.FILES.getlist('images')
+            for img in images:
+                  BlogImage.objects.create(blog=self.object, image=img)
+
+            return response
 
 
 class BlogDeleteView(LoginRequiredMixin, DeleteView):
