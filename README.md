@@ -6,7 +6,7 @@
 
 A robust, scalable news/blog platform built with Django, featuring role-based user management, content moderation workflow, and interactive user engagement features. Designed for modern web applications with clean architecture and best practices.
 
-## 🚀 Features
+## 🚀 Features 🌱💻✨
 
 ### Core Functionality
 - **User Authentication & Authorization**: Custom user model with role-based permissions (Author, Editor, Admin)
