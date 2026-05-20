@@ -54,15 +54,13 @@
 
             <!-- LIKE / DISLIKE -->
             {% if user.is_authenticated %}
-            <a href="{% url 'like' object.pk %}" class="btn btn-success">👍 Like</a>
-            <a href="{% url 'dislike' object.pk %}" class="btn btn-danger">👎 Dislike</a>
+            <a href="{% url 'like' object.pk %}" class="btn btn-success">👍 Like 5</a>
+            <a href="{% url 'dislike' object.pk %}" class="btn btn-danger">👎 Dislike 1</a>
             {% endif %}
 
       </div>
 </div>
-
 <hr>
-
 <!-- COMMENTS -->
 <div class="card mt-3">
       <div class="card-body">
