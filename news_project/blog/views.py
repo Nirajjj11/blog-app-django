@@ -19,7 +19,6 @@ class BlogDetailView(DetailView):
       model = Blog
       template_name = "blog/blog_detail.html"
 
-
 # from .models import Blog, BlogImage   # make sure BlogImage is imported
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
@@ -39,7 +38,6 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
                   BlogImage.objects.create(blog=self.object, image=img)
 
             return response
-
 
 class BlogUpdateView(LoginRequiredMixin, UpdateView):
       model = Blog
@@ -70,7 +68,6 @@ def submit_review(request, pk):
             blog.status = "pending"
             blog.save()
       return redirect("blog_detail", pk=pk)
-
 
 # EDITOR PANEL
 class PendingListView(UserPassesTestMixin, ListView):
